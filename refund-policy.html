@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hi-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Policy | LocalGrow — Aapka Business. Online Strong.</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="LocalGrow Logo" width="38" height="38" />
+        <span>LocalGrow</span>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="hinglish">Hinglish</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+        </div>
+        <a href="index.html" class="btn btn-outline btn-sm">← Back</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Content -->
+  <main class="container">
+    <article class="legal-container">
+      <div class="legal-header">
+        <h1 class="legal-title">Refund & Cancellation Policy</h1>
+        <p class="legal-meta">Effective Date: September 2026 • LocalGrow, Mohali, Punjab</p>
+      </div>
+
+      <div class="legal-body">
+        <div id="content-hinglish">
+          <h2>1. Kaam Shuru Hone Se Pehle Cancellation (100% Refund)</h2>
+          <p>
+            Agar aap payment karne ke 24 ghante ke andar aur kaam shuru hone / domain purchase hone se pehle order cancel karte hain, to aapka <strong>100% advance refund</strong> kar diya jayega.
+          </p>
+
+          <h2>2. Kaam Shuru Hone Ke Baad</h2>
+          <p>
+            Jab hum aapka custom domain (.in ya .com) register kar dete hain, to domain registry (ICANN/NIXI) domain fee refund nahi karti. Aise case mein:
+          </p>
+          <ul>
+            <li>Domain registration charge (~₹800 – ₹1,200) deduct hoga.</li>
+            <li>Domain ka complete control aur login aapko hand over kiya jayega (kyunki domain aapka ho chuka hai).</li>
+            <li>Baaki bacha hua unspent service balance aapke account mein refund kar diya jayega.</li>
+          </ul>
+
+          <h2>3. Live Demo Approve Hone Ke Baad</h2>
+          <p>
+            Jab aap website ka live demo dekh kar approve kar dete hain aur website internet par live publish ho jati hai, tab design aur setup services par refund applicable nahi hota. Is stage par hamari free revision guarantee lagu hoti hai taaki aapka kaam 100% santusht ho.
+          </p>
+
+          <h2>4. Growth Care Monthly Plan Cancellation</h2>
+          <p>
+            Growth Care (₹2,499/month) plan ko aap kisi bhi mahine cancel kar sakte hain. Koi lock-in contract ya penalty nahi hai. Next billing cycle se pehle WhatsApp par inform karein.
+          </p>
+
+          <h2>5. Refund Process Kaise Hoga?</h2>
+          <p>
+            Refund request approve hone ke 3 se 5 business working days ke andar direct aapke original UPI ya bank account mein transfer kar diya jayega.
+          </p>
+        </div>
+
+        <div id="content-en" style="display: none;">
+          <h2>1. Cancellation Prior to Project Mobilization (100% Refund)</h2>
+          <p>
+            If a cancellation request is lodged within 24 hours of initial advance payment and prior to domain purchasing or design mobilization, a <strong>100% refund</strong> is immediately credited.
+          </p>
+
+          <h2>2. Cancellations Mid-Way (After Domain Purchase)</h2>
+          <p>
+            Once a top-level domain (.in or .com) has been registered, third-party registrar fees are non-refundable under global registry policy. In such events:
+          </p>
+          <ul>
+            <li>The wholesale domain registry disbursement (~₹800 – ₹1,200) is deducted.</li>
+            <li>Full DNS and domain administrative credentials are fully transferred to the client.</li>
+            <li>The remainder of the unspent service advance is promptly refunded.</li>
+          </ul>
+
+          <h2>3. Post-Delivery & Launch Stage</h2>
+          <p>
+            Following preview approval and live DNS propagation to production servers, one-time engineering fees become non-refundable. At this juncture, our included revision rounds ensure any fine-tuning requirements are fully resolved to client satisfaction.
+          </p>
+
+          <h2>4. Growth Care Subscription Cancellation</h2>
+          <p>
+            Clients subscribed to Growth Care (₹2,499/month) may discontinue ongoing maintenance at any time prior to the commencement of the subsequent calendar billing cycle without exit charges.
+          </p>
+
+          <h2>5. Processing & Settlement Mechanism</h2>
+          <p>
+            Approved refunds are credited within 3 to 5 business days directly back to the client’s originating UPI handle or verified Indian bank account.
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const hinglishSec = document.getElementById('content-hinglish');
+    const enSec = document.getElementById('content-en');
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'en') {
+          hinglishSec.style.display = 'none';
+          enSec.style.display = 'block';
+        } else {
+          hinglishSec.style.display = 'block';
+          enSec.style.display = 'none';
+        }
+      });
+    });
+
+    const saved = localStorage.getItem('localgrow_lang');
+    if (saved === 'en') {
+      document.querySelector('.lang-btn[data-lang="en"]')?.click();
+    }
+  </script>
+</body>
+</html>

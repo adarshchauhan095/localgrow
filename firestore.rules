@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Match enquiries collection (customer leads)
+    match /enquiries/{enquiryId} {
+      // Allow public creation with strict validation to prevent malicious payload injection
+      allow create: if request.resource.data.keys().hasAll(['name', 'phone'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 120
+                    && request.resource.data.phone is string
+                    && request.resource.data.phone.size() > 5
+                    && request.resource.data.phone.size() < 25;
+
+      // Allow read and status update only for authenticated admin
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

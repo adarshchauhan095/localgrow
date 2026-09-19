@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Rounded Background Container -->
+  <rect width="48" height="48" rx="12" fill="#0F172A"/>
+  
+  <!-- Subtle Gradient Accent Glow -->
+  <defs>
+    <linearGradient id="growthGrad" x1="8" y1="40" x2="40" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="60%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="12" y1="26" x2="28" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Storefront Base Structure (Local Business) -->
+  <path d="M12 24V36C12 37.1046 12.8954 38 14 38H28C29.1046 38 30 37.1046 30 36V28" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Shop Doorway -->
+  <path d="M18 38V30C18 29.4477 18.4477 29 19 29H23C23.5523 29 24 29.4477 24 30V38" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Shop Awning Canopy (Hinglish: Dukan Chhath) -->
+  <path d="M10 24L12 17H28L30 24" stroke="url(#roofGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16 17V24M22 17V24" stroke="url(#roofGrad)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Dynamic Growth Arrow Ascending from the Local Business -->
+  <path d="M22 32L36 14" stroke="url(#growthGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M27 13H37V23" stroke="url(#growthGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Spark of Digital Success -->
+  <circle cx="39" cy="9" r="2" fill="#34D399"/>
+</svg>

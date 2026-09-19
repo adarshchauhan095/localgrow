@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hi-Latn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | LocalGrow — Aapka Business. Online Strong.</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="LocalGrow Logo" width="38" height="38" />
+        <span>LocalGrow</span>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" data-lang="hinglish">Hinglish</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+        </div>
+        <a href="index.html" class="btn btn-outline btn-sm">← Back</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Legal Content -->
+  <main class="container">
+    <article class="legal-container">
+      <div class="legal-header">
+        <h1 class="legal-title">Privacy Policy (Gopniyata Niti)</h1>
+        <p class="legal-meta">Last Updated: September 2026 • LocalGrow, Mohali, Punjab</p>
+      </div>
+
+      <div class="legal-body">
+        <div id="content-hinglish">
+          <h2>1. Hum Kaunsi Information Collect Karte Hain</h2>
+          <p>
+            LocalGrow aapke business ke online setup aur communication ke liye sirf zaroori details collect karta hai:
+          </p>
+          <ul>
+            <li>Aapka naam aur business ka naam</li>
+            <li>Mobile number aur WhatsApp contact number</li>
+            <li>Sheher / location aur business address</li>
+            <li>Aapki services, menu ya product details aur photos jo website par dikhani hain</li>
+          </ul>
+
+          <h2>2. Data Ka Istemal Kaise Hota Hai</h2>
+          <p>
+            Aapki information ka istemal sirf aur sirf in kamo ke liye kiya jata hai:
+          </p>
+          <ul>
+            <li>Aapki website design aur domain registration ke liye</li>
+            <li>Google Business profile verification aur Google Maps setup ke liye</li>
+            <li>Aapse order details ya project updates communicate karne ke liye</li>
+            <li>Aapke customers ke liye direct WhatsApp aur call button configure karne ke liye</li>
+          </ul>
+
+          <h2>3. Data Protection & Sharing</h2>
+          <p>
+            Hum aapka personal number, business information ya customer leads kisi bhi teesri party ya marketing company ko <strong>sell nahi karte</strong>. Data sirf official cloud platforms (e.g. Firebase, domain registrar) par securely store hota hai.
+          </p>
+
+          <h2>4. Cookies & Tracking</h2>
+          <p>
+            Website par koi invasive tracking nahi hai. Hum sirf basic performance aur user preferences (jaise aapka selected language) yaad rakhne ke liye local storage use karte hain.
+          </p>
+
+          <h2>5. Contact Us</h2>
+          <p>
+            Privacy policy se related kisi bhi sawal ke liye aap hume seedha contact kar sakte hain:
+            <br/><strong>Email:</strong> akchauhan095@gmail.com
+            <br/><strong>Phone / WhatsApp:</strong> +91 7015027886
+            <br/><strong>Location:</strong> Mohali, Punjab & Chandigarh Tricity
+          </p>
+        </div>
+
+        <div id="content-en" style="display: none;">
+          <h2>1. What Information We Collect</h2>
+          <p>
+            LocalGrow collects only the minimum essential information required to set up your digital business presence:
+          </p>
+          <ul>
+            <li>Your name and registered business name</li>
+            <li>Mobile phone and WhatsApp contact numbers</li>
+            <li>City, local area, and physical business location</li>
+            <li>Business services, menus, price sheets, and photos to be displayed on your website</li>
+          </ul>
+
+          <h2>2. How Your Information Is Used</h2>
+          <p>
+            Collected details are utilized exclusively for the delivery of your contracted services:
+          </p>
+          <ul>
+            <li>Registering your custom domain and provisioning secure cloud hosting</li>
+            <li>Configuring Google Business Profile and Google Maps directions</li>
+            <li>Communicating project progress, revisions, and status updates</li>
+            <li>Configuring direct click-to-call and WhatsApp enquiry triggers for your visitors</li>
+          </ul>
+
+          <h2>3. Data Protection & Third Parties</h2>
+          <p>
+            We <strong>never sell, rent, or distribute</strong> your commercial or contact information to third-party telemarketers or advertising brokers. Data is stored solely on enterprise-grade infrastructure (Firebase / domain registries) with industry standard security.
+          </p>
+
+          <h2>4. Cookies & Client Preferences</h2>
+          <p>
+            We do not use intrusive surveillance trackers. We employ lightweight client-side storage solely to preserve your preferred site language and ensure smooth responsiveness.
+          </p>
+
+          <h2>5. Contact & Data Access</h2>
+          <p>
+            For privacy inquiries or data update requests, please reach us directly:
+            <br/><strong>Email:</strong> akchauhan095@gmail.com
+            <br/><strong>Phone / WhatsApp:</strong> +91 7015027886
+            <br/><strong>Location:</strong> Mohali, Punjab & Chandigarh Tricity
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const hinglishSec = document.getElementById('content-hinglish');
+    const enSec = document.getElementById('content-en');
+
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'en') {
+          hinglishSec.style.display = 'none';
+          enSec.style.display = 'block';
+        } else {
+          hinglishSec.style.display = 'block';
+          enSec.style.display = 'none';
+        }
+      });
+    });
+
+    // Sync with saved preference
+    const saved = localStorage.getItem('localgrow_lang');
+    if (saved === 'en') {
+      document.querySelector('.lang-btn[data-lang="en"]')?.click();
+    }
+  </script>
+</body>
+</html>

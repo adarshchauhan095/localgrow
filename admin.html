@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LocalGrow Admin | Lead Management Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background-color: var(--color-surface); padding-bottom: 3rem;">
+
+  <!-- Simple Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="LocalGrow Logo" width="36" height="36" />
+        <span>LocalGrow <span style="font-size:0.875rem; color:#64748B; font-weight:600;">(Admin Portal)</span></span>
+      </a>
+      <a href="index.html" class="btn btn-outline btn-sm">← Back to Website</a>
+    </div>
+  </header>
+
+  <!-- Passcode Gate Box -->
+  <div class="container" id="adminAuthBox">
+    <div class="admin-login-box">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔐</div>
+      <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">LocalGrow Admin Access</h1>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+        Enter your administrative passcode to access the customer enquiries dashboard.
+      </p>
+      <input type="password" id="adminPinInput" class="input-field" placeholder="Enter PIN (Default: grow2026)" style="margin-bottom: 1rem; text-align: center; font-size: 1.125rem; letter-spacing: 0.1em;" />
+      <button type="button" id="adminPinBtn" class="btn btn-primary btn-block">Unlock Dashboard</button>
+      <p id="adminPinError" style="color: #DC2626; font-size: 0.8125rem; margin-top: 0.75rem; display: none; font-weight: 700;">
+        Incorrect passcode. Please try again.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Dashboard (Hidden by default until PIN verified) -->
+  <main class="admin-dashboard-container" id="adminDashboard" style="display: none;">
+    <div class="admin-header-bar">
+      <div>
+        <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary);">Enquiries & Leads</h1>
+        <p style="font-size: 0.875rem; color: var(--color-text-muted);">Real-time submissions from website quote flow and contact forms.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+        <span id="leadCountBadge" class="section-tag" style="margin-bottom: 0;">0 Leads</span>
+        <button type="button" id="refreshLeadsBtn" class="btn btn-outline btn-sm">🔄 Refresh</button>
+        <button type="button" id="exportCsvBtn" class="btn btn-secondary btn-sm">📥 Export CSV</button>
+        <button type="button" id="adminLogoutBtn" class="btn btn-outline btn-sm" style="color:#DC2626; border-color:#FECACA;">Logout</button>
+      </div>
+    </div>
+
+    <!-- Filters & Search Toolbar -->
+    <div style="background:#FFFFFF; border:1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
+      <div style="display: flex; gap: 0.75rem; align-items: center; flex: 1; min-width: 260px;">
+        <label for="adminSearchInput" style="font-size: 0.875rem; font-weight: 700; color: var(--color-primary);">Search:</label>
+        <input type="text" id="adminSearchInput" class="input-field" placeholder="Filter by name, business, phone or city..." style="padding: 0.5rem 0.875rem; font-size: 0.875rem;" />
+      </div>
+
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <label for="filterStatus" style="font-size: 0.875rem; font-weight: 700; color: var(--color-primary);">Status:</label>
+        <select id="filterStatus" class="input-field" style="padding: 0.5rem 0.875rem; font-size: 0.875rem; width: auto;">
+          <option value="ALL">All Statuses</option>
+          <option value="NEW">NEW</option>
+          <option value="CONTACTED">CONTACTED</option>
+          <option value="DEMO SENT">DEMO SENT</option>
+          <option value="FOLLOW-UP">FOLLOW-UP</option>
+          <option value="CONVERTED">CONVERTED</option>
+          <option value="NOT INTERESTED">NOT INTERESTED</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Leads Table -->
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Customer / Date</th>
+            <th>Business & Type</th>
+            <th>Contact & City</th>
+            <th>Requirement & Plan</th>
+            <th>Message & Lang</th>
+            <th>Lead Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody">
+          <!-- Dynamically populated by js/admin.js -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

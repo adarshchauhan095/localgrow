@@ -311,6 +311,182 @@ document.addEventListener('DOMContentLoaded', () => {
     b.setAttribute('href', `tel:${PHONE_NUMBER}`);
   });
 
+  // --- 7. Audio Guide Explainer (Web Speech API) ---
+  const audioPlayBtn = document.getElementById('audioPlayBtn');
+  const audioStatusText = document.getElementById('audioStatusText');
+  const audioEqualizer = document.querySelector('.audio-equalizer');
+  let isSpeaking = false;
+
+  function toggleAudioGuide() {
+    if (!('speechSynthesis' in window)) {
+      showToast('Audio playback not supported in this browser.', 'warning');
+      return;
+    }
+
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      isSpeaking = false;
+      if (audioEqualizer) audioEqualizer.classList.remove('playing');
+      if (audioPlayBtn) {
+        audioPlayBtn.innerHTML = `<span>▶️</span> <span data-i18n="audioGuide.buttonPlay">${window.i18n ? window.i18n.t('audioGuide.buttonPlay') : 'Suniye 1 Minute Mein'}</span>`;
+      }
+      if (audioStatusText) {
+        audioStatusText.innerText = window.i18n ? window.i18n.t('audioGuide.badge') : '🎙️ 1 Minute Audio Guide';
+      }
+    } else {
+      window.speechSynthesis.cancel();
+      const currentLang = window.i18n ? window.i18n.getLang() : 'hinglish';
+      const speechText = window.i18n ? window.i18n.t('audioGuide.speechText') : 'Namaste! LocalGrow aapke business ke liye professional website aur Google presence setup karta hai.';
+      
+      const utterance = new SpeechSynthesisUtterance(speechText);
+      utterance.rate = 0.95;
+      utterance.pitch = 1;
+      utterance.lang = currentLang === 'hinglish' ? 'hi-IN' : 'en-US';
+
+      // Pick natural voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const matchedVoice = voices.find(v => v.lang.startsWith(currentLang === 'hinglish' ? 'hi' : 'en'));
+      if (matchedVoice) utterance.voice = matchedVoice;
+
+      utterance.onstart = () => {
+        isSpeaking = true;
+        if (audioEqualizer) audioEqualizer.classList.add('playing');
+        if (audioPlayBtn) {
+          audioPlayBtn.innerHTML = `<span>⏸️</span> <span data-i18n="audioGuide.buttonPause">${window.i18n ? window.i18n.t('audioGuide.buttonPause') : 'Pause Audio'}</span>`;
+        }
+        if (audioStatusText) {
+          audioStatusText.innerText = window.i18n ? window.i18n.t('audioGuide.playingText') : 'Audio Chal Raha Hai...';
+        }
+      };
+
+      utterance.onend = utterance.onerror = () => {
+        isSpeaking = false;
+        if (audioEqualizer) audioEqualizer.classList.remove('playing');
+        if (audioPlayBtn) {
+          audioPlayBtn.innerHTML = `<span>▶️</span> <span data-i18n="audioGuide.buttonPlay">${window.i18n ? window.i18n.t('audioGuide.buttonPlay') : 'Suniye 1 Minute Mein'}</span>`;
+        }
+        if (audioStatusText) {
+          audioStatusText.innerText = window.i18n ? window.i18n.t('audioGuide.badge') : '🎙️ 1 Minute Audio Guide';
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  audioPlayBtn?.addEventListener('click', toggleAudioGuide);
+
+  // --- 8. Interactive Live Demo Showcase Tabs ---
+  const showcaseTabs = document.querySelectorAll('.showcase-tab-btn');
+  const demoTitle = document.getElementById('demoMockupTitle');
+  const demoBadge = document.getElementById('demoMockupBadge');
+  const demoS1 = document.getElementById('demoMockupS1');
+  const demoS2 = document.getElementById('demoMockupS2');
+  const demoS3 = document.getElementById('demoMockupS3');
+  const demoCta = document.getElementById('demoMockupCta');
+
+  function updateDemoContent(category) {
+    if (!window.i18n) return;
+    if (category === 'salon') {
+      if (demoTitle) demoTitle.innerText = window.i18n.t('demoShowcase.salonName');
+      if (demoBadge) demoBadge.innerText = window.i18n.t('demoShowcase.salonTag');
+      if (demoS1) demoS1.innerText = window.i18n.t('demoShowcase.salonService1');
+      if (demoS2) demoS2.innerText = window.i18n.t('demoShowcase.salonService2');
+      if (demoS3) demoS3.innerText = window.i18n.t('demoShowcase.salonService3');
+      if (demoCta) demoCta.innerHTML = `💬 ${window.i18n.t('demoShowcase.salonCta')}`;
+    } else if (category === 'clinic') {
+      if (demoTitle) demoTitle.innerText = window.i18n.t('demoShowcase.clinicName');
+      if (demoBadge) demoBadge.innerText = window.i18n.t('demoShowcase.clinicTag');
+      if (demoS1) demoS1.innerText = window.i18n.t('demoShowcase.clinicService1');
+      if (demoS2) demoS2.innerText = window.i18n.t('demoShowcase.clinicService2');
+      if (demoS3) demoS3.innerText = window.i18n.t('demoShowcase.clinicService3');
+      if (demoCta) demoCta.innerHTML = `🩺 ${window.i18n.t('demoShowcase.clinicCta')}`;
+    } else if (category === 'cafe') {
+      if (demoTitle) demoTitle.innerText = window.i18n.t('demoShowcase.cafeName');
+      if (demoBadge) demoBadge.innerText = window.i18n.t('demoShowcase.cafeTag');
+      if (demoS1) demoS1.innerText = window.i18n.t('demoShowcase.cafeService1');
+      if (demoS2) demoS2.innerText = window.i18n.t('demoShowcase.cafeService2');
+      if (demoS3) demoS3.innerText = window.i18n.t('demoShowcase.cafeService3');
+      if (demoCta) demoCta.innerHTML = `📍 ${window.i18n.t('demoShowcase.cafeCta')}`;
+    } else if (category === 'car') {
+      if (demoTitle) demoTitle.innerText = window.i18n.t('demoShowcase.carName');
+      if (demoBadge) demoBadge.innerText = window.i18n.t('demoShowcase.carTag');
+      if (demoS1) demoS1.innerText = window.i18n.t('demoShowcase.carService1');
+      if (demoS2) demoS2.innerText = window.i18n.t('demoShowcase.carService2');
+      if (demoS3) demoS3.innerText = window.i18n.t('demoShowcase.carService3');
+      if (demoCta) demoCta.innerHTML = `🚗 ${window.i18n.t('demoShowcase.carCta')}`;
+    }
+  }
+
+  showcaseTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      showcaseTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const category = tab.getAttribute('data-category');
+      updateDemoContent(category);
+    });
+  });
+
+  window.addEventListener('languageChanged', () => {
+    const activeTab = document.querySelector('.showcase-tab-btn.active');
+    const category = activeTab ? activeTab.getAttribute('data-category') : 'salon';
+    updateDemoContent(category);
+  });
+
+  // --- 9. Interactive ROI Calculator ---
+  const roiBizType = document.getElementById('roiBizType');
+  const roiCustSlider = document.getElementById('roiCustSlider');
+  const roiCustVal = document.getElementById('roiCustVal');
+  const roiHighlight = document.getElementById('roiHighlight');
+
+  function calculateROI() {
+    const avgTicket = parseInt(roiBizType?.value || '600', 10);
+    const newCust = parseInt(roiCustSlider?.value || '5', 10);
+    if (roiCustVal) roiCustVal.innerText = `${newCust} ${window.i18n ? window.i18n.t('roiCalculator.custUnit') : 'Customers'}`;
+
+    const monthlyExtraRevenue = avgTicket * newCust;
+    const monthsToRecover = (7999 / monthlyExtraRevenue).toFixed(1);
+
+    if (roiHighlight) {
+      if (monthsToRecover <= 1) {
+        roiHighlight.innerText = window.i18n && window.i18n.getLang() === 'en'
+          ? `Fully recovers setup cost in less than 30 days! (₹${monthlyExtraRevenue.toLocaleString('en-IN')}/mo extra revenue)`
+          : `Pehle hi mahine mein poora kharcha 100% vasool! (Har mahine ₹${monthlyExtraRevenue.toLocaleString('en-IN')} ki kamai)`;
+      } else {
+        roiHighlight.innerText = window.i18n && window.i18n.getLang() === 'en'
+          ? `Fully recovers setup cost in ~${monthsToRecover} months! (₹${monthlyExtraRevenue.toLocaleString('en-IN')}/mo extra revenue)`
+          : `Sirf lagbhag ${monthsToRecover} mahine mein poora kharcha 100% vasool! (Har mahine ₹${monthlyExtraRevenue.toLocaleString('en-IN')} ki kamai)`;
+      }
+    }
+  }
+
+  roiBizType?.addEventListener('change', calculateROI);
+  roiCustSlider?.addEventListener('input', calculateROI);
+  calculateROI();
+
+  // --- 10. FAQ Accordion ---
+  document.querySelectorAll('.faq-question-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close other accordion items
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+
+  // --- 11. WhatsApp Voice Note CTA Button Setup ---
+  const voiceNoteBtn = document.getElementById('whatsAppVoiceNoteBtn');
+  if (voiceNoteBtn) {
+    const voiceMsg = `Namaste LocalGrow Team! Mujhe apne business ke online setup ke baare mein baat karni hai. Main audio message bhej raha hoon.`;
+    voiceNoteBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(voiceMsg)}`;
+  }
+
   // Initialize Wizard UI
   updateWizardUI();
 });
+

@@ -80,11 +80,13 @@
 
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="#demo-showcase" class="nav-link" data-i18n="nav.demo">Live Demo</a>
         <a href="#how-it-works" class="nav-link" data-i18n="nav.howItWorks">Kaam Kaise Hota Hai</a>
         <a href="#services" class="nav-link" data-i18n="nav.services">Kya Karte Hain</a>
         <a href="#benefits" class="nav-link" data-i18n="nav.benefits">Fayde</a>
         <a href="#pricing" class="nav-link" data-i18n="nav.pricing">Plans & Pricing</a>
         <a href="#transparency" class="nav-link" data-i18n="nav.transparency">Transparency</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq">Sawal & Darr</a>
         <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
 
@@ -119,11 +121,13 @@
           <button type="button" class="lang-btn" data-lang="en" style="flex:1; text-align:center;">English</button>
         </div>
       </div>
+      <a href="#demo-showcase" class="mobile-nav-link"><span data-i18n="nav.demo">Live Demo</span> →</a>
       <a href="#how-it-works" class="mobile-nav-link"><span data-i18n="nav.howItWorks">Kaam Kaise Hota Hai</span> →</a>
       <a href="#services" class="mobile-nav-link"><span data-i18n="nav.services">Kya Karte Hain</span> →</a>
       <a href="#benefits" class="mobile-nav-link"><span data-i18n="nav.benefits">Fayde</span> →</a>
       <a href="#pricing" class="mobile-nav-link"><span data-i18n="nav.pricing">Plans & Pricing</span> →</a>
       <a href="#transparency" class="mobile-nav-link"><span data-i18n="nav.transparency">Transparency</span> →</a>
+      <a href="#faq" class="mobile-nav-link"><span data-i18n="nav.faq">Sawal & Darr</span> →</a>
       <a href="#contact" class="mobile-nav-link"><span data-i18n="nav.contact">Contact</span> →</a>
 
       <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
@@ -151,6 +155,17 @@
           <a href="#pricing" class="btn btn-outline" data-i18n="hero.secondaryCta">Plans Dekhein</a>
         </div>
         <div class="hero-trust-tag" data-i18n="hero.trustTag">✨ 100% Transparent • Zero Jargon • Mohali & Pan-India</div>
+
+        <!-- 1-Minute Audio Explainer Guide -->
+        <div class="audio-guide-bar">
+          <button type="button" class="audio-play-btn" id="audioPlayBtn">
+            <span>▶️</span> <span data-i18n="audioGuide.buttonPlay">Suniye 1 Minute Mein: LocalGrow Kya Karta Hai?</span>
+          </button>
+          <div class="audio-equalizer">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <span class="audio-status-text" id="audioStatusText" data-i18n="audioGuide.badge">🎙️ 1 Minute Audio Guide</span>
+        </div>
       </div>
 
       <!-- Hero Visual Flowchart Diagram -->
@@ -329,6 +344,52 @@
               <span data-i18n="problemSolution.s5">Area mein aapka business modern, active aur sabse trustworthy lagega</span>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIVE DEMO SHOWCASE (Aapki Dukan Online Aisi Dikhegi) ==================== -->
+  <section class="section" id="demo-showcase">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="demoShowcase.sectionTag">Live Preview</div>
+        <h2 class="section-title" data-i18n="demoShowcase.title">Aapki Dukan Online Aisi Dikhegi</h2>
+        <p class="section-subtitle" data-i18n="demoShowcase.subtitle">
+          Apni category par click karke live sample dekhein ki phone par aapka business kaisa chamkega:
+        </p>
+      </div>
+
+      <!-- Industry Select Tabs -->
+      <div class="showcase-tabs-nav" role="tablist">
+        <button type="button" class="showcase-tab-btn active" data-category="salon" data-i18n="demoShowcase.tabSalon">💇 Salon / Parlour</button>
+        <button type="button" class="showcase-tab-btn" data-category="clinic" data-i18n="demoShowcase.tabClinic">🩺 Clinic / Doctor</button>
+        <button type="button" class="showcase-tab-btn" data-category="cafe" data-i18n="demoShowcase.tabCafe">☕ Restaurant / Cafe</button>
+        <button type="button" class="showcase-tab-btn" data-category="car" data-i18n="demoShowcase.tabCar">🚗 Car Detailing / Garage</button>
+      </div>
+
+      <!-- Interactive Phone Mockup Frame -->
+      <div class="mockup-phone-frame">
+        <div class="mockup-screen-inner">
+          <div class="mockup-browser-bar">
+            <span>🔒 https://yourbusiness.in</span>
+            <span>⚡ 5G</span>
+          </div>
+
+          <div class="mockup-biz-header">
+            <h3 class="mockup-biz-title" id="demoMockupTitle" data-i18n="demoShowcase.salonName">Glow & Shine Unisex Studio</h3>
+            <span class="mockup-biz-badge" id="demoMockupBadge" data-i18n="demoShowcase.salonTag">Best Hair, Skin & Makeup in Mohali Phase 7</span>
+          </div>
+
+          <div class="mockup-services-list">
+            <div class="mockup-service-item" id="demoMockupS1" data-i18n="demoShowcase.salonService1">Hair Cut & Styling — ₹350</div>
+            <div class="mockup-service-item" id="demoMockupS2" data-i18n="demoShowcase.salonService2">Hydra Glow Facial — ₹1,499</div>
+            <div class="mockup-service-item" id="demoMockupS3" data-i18n="demoShowcase.salonService3">Bridal & Party Makeup Packages</div>
+          </div>
+
+          <a href="https://wa.me/917015027886?text=Namaste%20LocalGrow!%20Maine%20demo%20preview%20dekha,%20mujhe%20apne%20business%20ke%20liye%20aisa%20setup%20chahiye." target="_blank" rel="noopener" class="mockup-action-btn" id="demoMockupCta" data-i18n="demoShowcase.salonCta">
+            💬 Book Appointment on WhatsApp
+          </a>
         </div>
       </div>
     </div>
@@ -672,8 +733,58 @@
     </div>
   </section>
 
+  <!-- ==================== ROI CALCULATOR (Kitna Kharcha, Kitna Fayda?) ==================== -->
+  <section class="section" id="roi-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="roiCalculator.sectionTag">Hisab-Kitab</div>
+        <h2 class="section-title" data-i18n="roiCalculator.title">Kitna Kharcha, Kitna Fayda? (ROI Hisab)</h2>
+        <p class="section-subtitle" data-i18n="roiCalculator.subtitle">
+          Aapka ₹7,999 ka one-time setup kitne dino mein vasool hoga? Khud calculation dekhein:
+        </p>
+      </div>
+
+      <div class="roi-calculator-card">
+        <div class="roi-slider-row">
+          <label for="roiBizType" class="roi-slider-label">
+            <span data-i18n="roiCalculator.selectBiz">Aapka Business:</span>
+          </label>
+          <select id="roiBizType" class="input-field">
+            <option value="600" data-i18n="roiCalculator.bSalon">Salon / Parlour (Avg ₹600/cust)</option>
+            <option value="800" data-i18n="roiCalculator.bClinic">Clinic / Doctor (Avg ₹800/cust)</option>
+            <option value="400" data-i18n="roiCalculator.bRestaurant">Restaurant / Cafe (Avg ₹400/cust)</option>
+            <option value="1500" data-i18n="roiCalculator.bCar">Car Detailing / Service (Avg ₹1,500/cust)</option>
+            <option value="700" data-i18n="roiCalculator.bOther">General Shop / Retail (Avg ₹700/cust)</option>
+          </select>
+        </div>
+
+        <div class="roi-slider-row">
+          <div class="roi-slider-label">
+            <span data-i18n="roiCalculator.targetLabel">Mahine mein naye customers kitne chahiye:</span>
+            <span id="roiCustVal" style="color: var(--color-accent-hover); font-size: 1.125rem;">5 Customers</span>
+          </div>
+          <input type="range" id="roiCustSlider" class="roi-range-input" min="1" max="30" value="5" step="1" />
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #94A3B8; margin-top: 4px;">
+            <span>1 Cust/mo</span>
+            <span>15 Cust/mo</span>
+            <span>30 Cust/mo</span>
+          </div>
+        </div>
+
+        <div class="roi-result-banner">
+          <div class="roi-result-heading" id="roiHighlight" data-i18n="roiCalculator.mathHighlight">
+            Sirf 2 se 3 naye customers aane par poora setup 100% vasool!
+          </div>
+          <div class="roi-result-desc" data-i18n="roiCalculator.mathDetail">
+            Aapki website ek baar banegi aur saal-dar-saal naye local customers lati rahegi. Har naya customer aapka seedha profit hai.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== TRANSPARENCY SECTION ("Hum kuch chhupate nahi.") ==================== -->
-  <section class="section" id="transparency">
+  <section class="section section-alt" id="transparency">
     <div class="container">
       <div class="section-header">
         <div class="section-tag" data-i18n="transparency.sectionTag">Khuli Kitaab</div>
@@ -725,6 +836,76 @@
           <div class="timeline-col" style="background:#ECFDF5; border-color:#A7F3D0;">
             <span class="timeline-col-year" style="background:#10B981; color:#FFFFFF;" data-i18n="transparency.y3Title">FUTURE (Aage)</span>
             <p class="timeline-col-desc" style="color:#065F46;" data-i18n="transparency.y3Desc">Website uninterrupted chalti rahegi aur business grow karta rahega.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ (Dukan-daron Ke 5 Asli Darr) ==================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="faq.sectionTag">Darr & Sawal</div>
+        <h2 class="section-title" data-i18n="faq.title">Dukan-daron Ke 5 Asli Darr (Zero Confusion)</h2>
+        <p class="section-subtitle" data-i18n="faq.subtitle">
+          Bina kisi jhijhak ke seedhe aur imandar jawab:
+        </p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <!-- Q1 -->
+        <div class="faq-item open">
+          <button type="button" class="faq-question-btn">
+            <span data-i18n="faq.q1">1. Mujhe computer ya English nahi aati, main kaise chalaunga?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer-pane" data-i18n="faq.a1">
+            Aapko computer ya English sikhne ki bilkul zarurat nahi! Aap sirf apni dukan ya clinic par dhyan dein. Website banane se lekar hosting, domain aur updates ka sara technical kaam LocalGrow sambhalta hai.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span data-i18n="faq.q2">2. Domain aur website ka asli maalik kaun hoga?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer-pane" data-i18n="faq.a2">
+            Aap hi rahenge! Domain aapke business ke naam aur aapke phone number/email par register hota hai. Hum kisi business ko lock ya trap nahi karte. 100% legal ownership aapki hai.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span data-i18n="faq.q3">3. Baad mein koi hidden charge ya achanak bill aayega kya?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer-pane" data-i18n="faq.a3">
+            Ek rupaye ka bhi hidden charge nahi hai! Pehle saal domain aur server hosting plan mein free included hai. Dusre saal se sirf standard third-party renewal (~₹2,500 - ₹3,500/yr) lagega jo pehle se clear bataya jata hai.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span data-i18n="faq.q4">4. Agar mera phone number, dukan ka pata ya rate badal jaye toh?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer-pane" data-i18n="faq.a4">
+            Bas hume WhatsApp par photo ya message bhej dijiye. Hum 24 se 48 ghante ke andar bina kisi pareshani ke aapki website par nayi details update kar denge.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span data-i18n="faq.q5">5. Kya main aapse face-to-face mil kar baat kar sakta hoon?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer-pane" data-i18n="faq.a5">
+            Haanji bilkul! Agar aap Mohali, Chandigarh, Panchkula (Tricity) ya aas-paas ke area mein hain, toh hum aapse personal physical meeting ya call par live demo dikha kar mil sakte hain.
           </div>
         </div>
       </div>
@@ -871,6 +1052,41 @@
           <a href="https://wa.me/917015027886" id="wizardDirectWhatsAppBtn" target="_blank" rel="noopener" class="btn btn-whatsapp" data-i18n="quote.whatsappDirect">
             WhatsApp Par Turant Baat Karein
           </a>
+        </div>
+      </div>
+
+      <!-- Voice Note Alternative for Non-Typing/Semi-Literate Clients -->
+      <div class="voice-note-box">
+        <span style="font-size: 0.875rem; font-weight: 700; color: #92400E;" data-i18n="voiceNote.hint">Bol kar apni requirement batayein — hum baaki sab handle kar lenge.</span>
+        <a href="https://wa.me/917015027886?text=Namaste%20LocalGrow!%20Main%20audio%20message%20bhej%20kar%20apne%20business%20ke%20liye%20baat%20karna%20chahta%20hoon." id="whatsAppVoiceNoteBtn" target="_blank" rel="noopener" class="voice-note-btn">
+          <span>🎙️</span> <span data-i18n="voiceNote.btnText">Form nahi bharna? WhatsApp par Audio / Voice Note bhejein</span>
+        </a>
+      </div>
+
+      <!-- Privacy & Zero Spam Trust Badges Grid -->
+      <div class="security-badges-grid">
+        <div class="security-badge-item">
+          <div class="security-badge-icon">🔒</div>
+          <div class="security-badge-title" data-i18n="trustBadges.b1Title">Zero Spam Promise</div>
+          <div class="security-badge-desc" data-i18n="trustBadges.b1Desc">Aapka number safe hai. No telemarketing, no promotional calls.</div>
+        </div>
+
+        <div class="security-badge-item">
+          <div class="security-badge-icon">🛡️</div>
+          <div class="security-badge-title" data-i18n="trustBadges.b2Title">100% Data Security</div>
+          <div class="security-badge-desc" data-i18n="trustBadges.b2Desc">256-bit SSL encrypted fast Google cloud infrastructure.</div>
+        </div>
+
+        <div class="security-badge-item">
+          <div class="security-badge-icon">📄</div>
+          <div class="security-badge-title" data-i18n="trustBadges.b3Title">GST Invoice Available</div>
+          <div class="security-badge-desc" data-i18n="trustBadges.b3Desc">Official business bill for business accounting & tax input credit.</div>
+        </div>
+
+        <div class="security-badge-item">
+          <div class="security-badge-icon">🤝</div>
+          <div class="security-badge-title" data-i18n="trustBadges.b4Title">Tricity Local Support</div>
+          <div class="security-badge-desc" data-i18n="trustBadges.b4Desc">Mohali based team — phone ya WhatsApp par seedha human support.</div>
         </div>
       </div>
     </div>
